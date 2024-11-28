@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Playwrite+CU:wght@100..400&family=Protest+Guerrilla&display=swap');
+html{
+  direction: rtl;
+  font-family: "IBM Plex Sans Arabic", sans-serif !important;
+}
+/* @media (max-width: 600px) {
+  .your-class {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .prayer-list {
+    flex-direction: column; 
+  }
+}
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  padding: 2%;
+} */
+@media (max-width: 600px) {
+  .your-class {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .prayer-list {
+    flex-direction: column; /* تغيير الاتجاه للعمود */
+  }
+}
