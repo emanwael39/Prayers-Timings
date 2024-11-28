@@ -10,7 +10,7 @@ import {
   Select,
   Stack,
 } from "@mui/material";
-import Prayer from "./prayer";
+
 import photo1 from "../images/photo2.jpeg";
 import photo2 from "../images/b5.png";
 import photo3 from "../images/photo3.jpeg";
@@ -19,6 +19,7 @@ import photo5 from "../images/b3.png";
 import moment from "moment";
 import "moment/locale/ar";
 moment.locale("ar");
+import CardMedia from "./Prayer";
 
 export default function MainComponent() {
   const [city, setCity] = useState({
@@ -79,9 +80,14 @@ export default function MainComponent() {
       prayerIndex = 4;
     }
 
-    const nextPrayerTime = moment(timings[prayersArray[prayerIndex].APIName], "hh:mm");
+    const nextPrayerTime = moment(
+      timings[prayersArray[prayerIndex].APIName],
+      "hh:mm"
+    );
     const duration = moment.duration(nextPrayerTime.diff(momentNow));
-    setTimeLeft(`${duration.hours()} ساعة ${duration.minutes()} دقيقة ${duration.seconds()} ثانية`);
+    setTimeLeft(
+      `${duration.hours()} ساعة ${duration.minutes()} دقيقة ${duration.seconds()} ثانية`
+    );
     setNextPrayer(prayerIndex);
   };
 
@@ -168,9 +174,8 @@ export default function MainComponent() {
     { displayedName: "واحة الخارجة", APIName: "Kharga Oasis" },
   ];
 
-
   const prayersList = data.map((item) => (
-    <Prayer
+    <CardMedia
       key={item.id}
       src={item.src}
       name={item.name}
@@ -180,21 +185,22 @@ export default function MainComponent() {
 
   return (
     <div>
-    <Grid container spacing={2}>
-  <Grid item xs={12} sm={6}>
-    <p>{currentTime}</p>
-    <h2>{city.displayedName}</h2>
-  </Grid>
-  <Grid item xs={12} sm={6}>
-    <p>الصلاة القادمة: {prayersArray[nextPrayer].prayerName}</p>
-    <h2>{timeLeft}</h2>
-  </Grid>
-</Grid>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <p>{currentTime}</p>
+          <h2>{city.displayedName}</h2>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          {/* <p>الصلاة القادمة: {prayersArray[nextPrayer].prayerName}</p> */}
+          <p> متبقي علي الصلاة القادمة</p>
+          <h2>{timeLeft}</h2>
+        </Grid>
+      </Grid>
 
       <Divider style={{ borderColor: "white", opacity: ".1" }} />
       <Grid container spacing={2} justifyContent="center">
-    {prayersList}
-  </Grid>
+        {prayersList}
+      </Grid>
       <Stack direction={"row"} justifyContent={"center"}>
         <Box style={{ marginTop: "50px", width: "250px" }}>
           <FormControl
