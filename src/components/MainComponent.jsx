@@ -11,11 +11,11 @@ import {
   Stack,
 } from "@mui/material";
 
-import photo1 from "../images/photo2.jpeg";
-import photo2 from "../images/b5.png";
-import photo3 from "../images/photo3.jpeg";
-import photo4 from "../images/b4.png";
-import photo5 from "../images/b3.png";
+import photo1 from "../../public/images/photo2.jpeg";
+import photo2 from "../../public/images/b5.png";
+import photo3 from "../../public/images/photo3.jpeg";
+import photo4 from "../../public/images/b4.png";
+import photo5 from "../../public/images/b3.png";
 import moment from "moment";
 import "moment/locale/ar";
 moment.locale("ar");
